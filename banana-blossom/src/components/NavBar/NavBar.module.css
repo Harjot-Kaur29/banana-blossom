@@ -1,52 +1,92 @@
+/* src/components/Navbar/Navbar.module.css */
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 3rem;
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background-color: transparent;               /* start transparent */
+  transition: background-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
+/* When user scrolls past 80px, we add this .scrolled class */
+.scrolled {
+  background-color: white;                     /* switch to white */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo color (white when transparent, dark when scrolled) */
 .logo {
   font-size: 2rem;
   font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+}
+.scrolled .logo {
   color: #122;
 }
 
+/* Navigation links */
 .navLinks {
   display: flex;
-  gap: 2rem;
+  gap: 8rem;
   list-style: none;
+  margin-left: 755px;
 }
 
+/* Base link styles – we will toggle between linkLight / linkDark */
 .navLinks li a {
   text-decoration: none;
-  color: #222;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.navLinks li a:hover {
+/* White link (for transparent navbar) */
+.linkLight {
+  color: white;
+}
+.linkLight:hover {
+  color: #e76f51; /* coral hover */
+}
+
+/* Dark link (for scrolled navbar) */
+.linkDark {
+  color: #222;
+}
+.linkDark:hover {
   color: #e76f51;
 }
 
+/* “View Menu” button – we also give it two variants */
 .reserveBtn {
-  background-color: #e76f51;
-  color: white;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-right:100px;   
-  /* ask janmejay about margin-right*/
+  transition: background-color 0.3s ease,
+              color 0.3s ease;
+              margin-right: 30px;
 }
 
-.reserveBtn:hover {
+/* Button style when navbar is transparent (text on hero) */
+.btnLight {
+  background-color: #e76f51;
+  color: white;
+}
+
+/* Button style when navbar is scrolled */
+.btnDark {
+  background-color: #e76f51;
+  color: white;
+}
+
+.btnLight:hover,
+.btnDark:hover {
   background-color: #d45f45;
 }

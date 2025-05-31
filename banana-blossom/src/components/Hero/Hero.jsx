@@ -1,3 +1,4 @@
+// src/components/Hero/HeroSection.jsx
 import React from "react";
 import Slider from "react-slick";
 
@@ -13,37 +14,36 @@ const images = [
 ];
 
 const HeroSection = () => {
-    const settings = {
+  const settings = {
     dots: true,
     fade: true,
     infinite: true,
-    speed: 1000,          
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 2000,  
+    autoplaySpeed: 3000,
     pauseOnHover: false,
   };
-
 
   return (
     <div className={styles.heroWrapper}>
       <Slider {...settings}>
         {images.map((img, index) => (
           <div key={index} className={styles.heroSlide}>
-  <img
-    src={img}
-    alt={`Hero slide ${index + 1}`}
-    className={styles.heroImage}
-  />
-  <div className={styles.overlay}></div> {/* darkens background */}
-  <div className={styles.heroContent}>
-    <h1>BANANA BLOSSOM</h1>
-    <p>ROOFTOP FINE DINE & RESTAURANT</p>
-    <button className={styles.viewMenu}>View Menu</button>
-  </div>
-</div>
+            <img
+              src={img}
+              alt={`Hero slide ${index + 1}`}
+              className={styles.heroImage}
+            />
+            <div className={styles.overlay}></div>
+            <div className={styles.heroContent}>
+              <h1>BANANA BLOSSOM</h1>
+              <p>ROOFTOP FINE DINE & RESTAURANT</p>
+              <button className={styles.viewMenu}>View Menu</button>
+            </div>
+          </div>
         ))}
       </Slider>
     </div>

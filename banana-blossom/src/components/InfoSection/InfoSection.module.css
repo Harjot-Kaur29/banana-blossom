@@ -1,0 +1,97 @@
+/* InfoSection.module.css */
+
+/* The overall section: full‐width, side‐by‐side on desktop */
+.infoSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 3rem;         /* adjust top/bottom padding as desired */
+  gap: 2rem;                  /* space between left & right */
+}
+
+/* LEFT SIDE: text area (50% width by default on large screens) */
+.textContainer {
+  flex: 1;                    /* grow to fill half */
+  max-width: 50%;
+}
+
+/* Small uppercase subtitle, in accent color */
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e76f51;             /* same coral/orange as your buttons */
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Large heading */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+  color: #222;                /* dark color for main heading */
+  margin-bottom: 1rem;
+}
+
+/* Paragraph */
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* Underlined link */
+.link {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e76f51;             /* coral */
+  text-decoration: none;
+  border-bottom: 2px solid #e76f51;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.link:hover {
+  color: #d45f45;
+  border-color: #d45f45;
+}
+
+/* RIGHT SIDE: image area (50% width by default on large screens) */
+.imageContainer {
+  flex: 1;                    /* grow to fill half */
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The image itself */
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVE: On narrower viewports, stack vertically */
+@media screen and (max-width: 768px) {
+  .infoSection {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  .textContainer,
+  .imageContainer {
+    max-width: 100%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .paragraph {
+    font-size: 0.95rem;
+  }
+}
