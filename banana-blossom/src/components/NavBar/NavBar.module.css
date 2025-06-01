@@ -49,9 +49,13 @@
 /* White link (for transparent navbar) */
 .linkLight {
   color: white;
+  position:relative;
+   text-decoration: none;
+
 }
 .linkLight:hover {
-  color: #e76f51; /* coral hover */
+  color: #e76f51;
+  /* coral hover */
 }
 
 /* Dark link (for scrolled navbar) */
@@ -60,6 +64,23 @@
 }
 .linkDark:hover {
   color: #e76f51;
+  
+}
+
+.linkLight::before
+ {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* adjust based on spacing */
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: white;
+  transition: all .5s;
+}
+
+.linkLight:hover::before{
+  width: 100%;
 }
 
 /* “View Menu” button – we also give it two variants */
@@ -88,5 +109,16 @@
 
 .btnLight:hover,
 .btnDark:hover {
-  background-color: #d45f45;
+  background-color: #d45f45
+}
+
+.activeLink {
+  color: #e76f51;
+  text-decoration: none; /* disable default underline */
+}
+
+.activeLink::before {
+  width: 100% !important;
+  background-color: white; /* match your active color */
+  /* You can override bottom or height if needed */
 }

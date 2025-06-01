@@ -1,0 +1,50 @@
+.footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footerLogo h2 {
+  font-size: 32px;
+  color: #f06c5f;
+  margin-bottom: 5px;
+}
+
+.footerLogo p:first-of-type {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.footerLinks,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerLinks a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.footerLinks a:hover {
+  color: #f06c5f;
+}
+
+.footerBottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #bbb;
+}
