@@ -1,9 +1,12 @@
 // src/components/Hero/HeroSection.jsx
 import React from "react";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import styles from "./Hero.module.css";
 
@@ -14,24 +17,25 @@ const images = [
 ];
 
 const HeroSection = () => {
-  const settings = {
-    dots: true,
-    fade: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
-  };
-
   return (
     <div className={styles.heroWrapper}>
-      <Slider {...settings}>
+      <Swiper
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        grabCursor={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        speed={2000}
+        pagination={{ clickable: true }}
+        navigation={false}
+        modules={[EffectFade, Autoplay, Pagination, Navigation]}
+        loop={true}
+        className={styles.heroSwiper}
+      >
         {images.map((img, index) => (
-          <div key={index} className={styles.heroSlide}>
+          <SwiperSlide key={index} className={styles.heroSlide}>
             <img
               src={img}
               alt={`Hero slide ${index + 1}`}
@@ -43,9 +47,9 @@ const HeroSection = () => {
               <p>ROOFTOP FINE DINE & RESTAURANT</p>
               <button className={styles.viewMenu}>View Menu</button>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 };

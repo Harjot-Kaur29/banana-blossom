@@ -1,14 +1,27 @@
 .heroWrapper {
-  /* margin-top: 100px; */
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.heroContainer {
+  position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroSwiper {
+  height: 100vh; /* Swiper full height */
 }
 
 .heroSlide {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Slide full height */
   overflow: hidden;
 }
 
@@ -21,6 +34,12 @@
   left: 0;
   z-index: 0;
   filter: brightness(60%);
+  display: block;
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swiper-slide-active .heroImage {
+  transform: scale(1.08);
 }
 
 .overlay {
@@ -52,7 +71,6 @@
   font-size: 1.2rem;
   margin-top: 0.5rem;
   letter-spacing: 1px;
-
 }
 
 .viewMenu {
@@ -69,4 +87,9 @@
 
 .viewMenu:hover {
   background-color: #d45f45;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
 }
