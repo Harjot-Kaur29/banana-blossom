@@ -2,8 +2,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 
+
+
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +30,9 @@ const Navbar = () => {
         <li>
           <a
             href="#"
-            className={scrolled ? styles.linkDark : styles.linkLight}
+           className={`${scrolled ? styles.linkDark : styles.linkLight} ${
+      activeLink === "home" ? styles.activeLink : ""
+    }`}
           >
             Home
           </a>

@@ -24,7 +24,7 @@ const HeroSection = () => {
         fadeEffect={{ crossFade: true }}
         grabCursor={true}
         autoplay={{
-          delay: 4000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         speed={2000}
