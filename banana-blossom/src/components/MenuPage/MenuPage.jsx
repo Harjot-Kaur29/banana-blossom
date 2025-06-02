@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import styles from './MenuPage.module.css';
-import { FaLeaf, FaDrumstickBite, FaIceCream, FaGlassMartiniAlt } from 'react-icons/fa';
+import {
+  FaLeaf,
+  FaDrumstickBite,
+  FaIceCream,
+  FaGlassMartiniAlt,
+  FaPizzaSlice,
+  FaHamburger,
+  FaUtensils
+} from 'react-icons/fa';
 
 const vegMenu = {
   Breakfast: {
@@ -35,7 +43,7 @@ const beveragesMenu = ['Mango Lassi', 'Coca Cola', 'Fresh Lime Water'];
 
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState('Veg');
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [selectedSubcategory, setSelectedSubcategory] = useState('North Indian');
 
   const getVegSubcategories = () => {
     const subcats = new Set();
@@ -43,7 +51,7 @@ const MenuPage = () => {
       if (typeof items === 'object' && !Array.isArray(items)) {
         Object.keys(items).forEach(subcat => subcats.add(subcat));
       } else {
-        subcats.add(section); // Soups is directly a dish list
+        subcats.add(section);
       }
     });
     return Array.from(subcats);
@@ -58,7 +66,7 @@ const MenuPage = () => {
           .filter(([subcat]) => subcat === selectedSubcategory)
           .map(([subcat, dishes]) => (
             <div key={subcat} className={styles.sectionBlock}>
-              <h2 className={styles.sectionTitle}>{section} - {subcat}</h2>
+              <h2 className={styles.sectionTitle}>{section} – {subcat}</h2>
               <ul className={styles.dishList}>
                 {dishes.map(dish => <li key={dish}>{dish}</li>)}
               </ul>
@@ -103,7 +111,6 @@ const MenuPage = () => {
 
   const renderSubcategoryButtons = () => {
     let subcategories = [];
-
     if (activeCategory === 'Veg') {
       subcategories = getVegSubcategories();
     } else if (activeCategory === 'Non-Veg') {
@@ -127,35 +134,64 @@ const MenuPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>Our Menu</h1>
+      {/* Hero Banner */}
+      <div className={styles.hero}>
+        <div className={styles.heroOverlay}></div>
+        <h2 className={styles.heroText}>Welcome to Banana Blossom Kitchen</h2>
+        <FaPizzaSlice className={styles.floatingIcon1} />
+        <FaHamburger className={styles.floatingIcon2} />
+        <FaUtensils className={styles.floatingIcon3} />
+      </div>
 
+      {/* Section Title + Divider */}
+      <h1 className={styles.heading}>Our Menu</h1>
+      <div className={styles.divider} />
+
+      {/* Main Category Buttons */}
       <div className={styles.mainCategories}>
-        <button className={`${styles.iconButton} ${activeCategory === 'Veg' ? styles.active : ''}`}
-          onClick={() => { setActiveCategory('Veg'); setSelectedSubcategory('North Indian'); }}>
+        <button
+          className={`${styles.iconButton} ${activeCategory === 'Veg' ? styles.active : ''}`}
+          onClick={() => { setActiveCategory('Veg'); setSelectedSubcategory('North Indian'); }}
+        >
           <FaLeaf color="green" /> Veg
         </button>
-        <button className={`${styles.iconButton} ${activeCategory === 'Non-Veg' ? styles.active : ''}`}
-          onClick={() => { setActiveCategory('Non-Veg'); setSelectedSubcategory('Main Course'); }}>
+
+        <button
+          className={`${styles.iconButton} ${activeCategory === 'Non-Veg' ? styles.active : ''}`}
+          onClick={() => { setActiveCategory('Non-Veg'); setSelectedSubcategory('Main Course'); }}
+        >
           <FaDrumstickBite color="red" /> Non-Veg
         </button>
-        <button className={`${styles.iconButton} ${activeCategory === 'Dessert' ? styles.active : ''}`}
-          onClick={() => { setActiveCategory('Dessert'); setSelectedSubcategory(''); }}>
+
+        <button
+          className={`${styles.iconButton} ${activeCategory === 'Dessert' ? styles.active : ''}`}
+          onClick={() => { setActiveCategory('Dessert'); setSelectedSubcategory(''); }}
+        >
           <FaIceCream /> Dessert
         </button>
-        <button className={`${styles.iconButton} ${activeCategory === 'Beverages' ? styles.active : ''}`}
-          onClick={() => { setActiveCategory('Beverages'); setSelectedSubcategory(''); }}>
+
+        <button
+          className={`${styles.iconButton} ${activeCategory === 'Beverages' ? styles.active : ''}`}
+          onClick={() => { setActiveCategory('Beverages'); setSelectedSubcategory(''); }}
+        >
           <FaGlassMartiniAlt /> Beverages
         </button>
       </div>
 
+      {/* Subcategory Buttons (Veg / Non-Veg) */}
       {(activeCategory === 'Veg' || activeCategory === 'Non-Veg') && renderSubcategoryButtons()}
 
+      {/* Menu Content */}
       <div className={styles.menuContent}>
         {activeCategory === 'Veg' && selectedSubcategory && renderVegMenu()}
         {activeCategory === 'Non-Veg' && selectedSubcategory && renderNonVegMenu()}
         {activeCategory === 'Dessert' && renderSimpleMenu('Dessert', dessertMenu)}
         {activeCategory === 'Beverages' && renderSimpleMenu('Beverages', beveragesMenu)}
       </div>
+
+      {/* Decorative Background Blobs */}
+      <div className={styles.blobOne}></div>
+      <div className={styles.blobTwo}></div>
     </div>
   );
 };
