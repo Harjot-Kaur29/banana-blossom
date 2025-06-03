@@ -1,20 +1,149 @@
-/* MenuPage.module.css */
-
+/* =========================================================================
+   1. GLOBAL & CONTAINER STYLES
+   ========================================================================= */
 .container {
-  max-width: 1200px;
+  position: relative;
+  max-width: 2400px;
   margin: auto;
-  padding: 2rem;
+  padding: 2rem 2rem 4rem; /* extra bottom space for blobs */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fefefe;
+  /* background-color: #F5F5F5; */
 }
 
+/* Reset default list margins */
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================================================================
+   2. HERO BANNER
+   ========================================================================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-bottom: 2rem;
+  background-image: url('../../../public/images/image2.jpg'); /* ← Replace with your own hero image path */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Semi‐transparent black overlay so text stands out */
+  background: rgba(0, 0, 0, 0.348);
+}
+
+.heroText {
+  position: absolute;
+  top: 50%;
+  /* left: 50%; */
+  transform: translate(-50%, -50%);
+  color: #fff;  
+  font-size: 2.5rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInText 2s ease forwards;
+  width: 100%;
+  max-width: 95vw;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Responsive adjustments for .heroText */
+@media (max-width: 768px) {
+  .heroText {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText {
+    font-size: 1.2rem;
+    padding: 0 0.2rem;
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+/* Floating Food Icons (white, pulsing) */
+.floatingIcon1,
+.floatingIcon2,
+.floatingIcon3 {
+  color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.9;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floatingIcon1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floatingIcon2 {
+  top: 60%;
+  left: 80%;
+  animation-delay: 1.2s;
+}
+
+.floatingIcon3 {
+  top: 70%;
+  left: 40%;
+  animation-delay: 0.6s;
+}
+
+/* =========================================================================
+   3. SECTION HEADING & DIVIDER
+   ========================================================================= */
 .heading {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #222;
+  margin-bottom: 0.5rem;
+  color: #000000;       /* Pure black for headings */
+  font-weight: 700;
+  position: relative;
 }
 
+.heading::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 4px;
+  margin: 0.5rem auto 0;
+  background: #d45f45;  /* Updated orange underline */
+  border-radius: 2px;
+}
+
+.divider {
+  width: 80%;
+  height: 2px;
+  margin: 1.5rem auto 2rem;
+  background: rgba(212, 95, 69, 0.3);  /* Updated light orange */
+  border-radius: 1px;
+}
+
+/* =========================================================================
+   4. MAIN CATEGORY BUTTONS (BLACK BORDER + ORANGE ON HOVER)
+   ========================================================================= */
 .mainCategories {
   display: flex;
   justify-content: center;
@@ -25,7 +154,7 @@
 
 .iconButton {
   background-color: #ffffff;
-  border: 2px solid #e76f51;
+  border: 2px solid #000000;       /* Solid black border */
   border-radius: 8px;
   padding: 0.75rem 1.25rem;
   cursor: pointer;
@@ -33,54 +162,103 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #e76f51;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  color: #000000;                   /* Black text */
+  font-weight: 600;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .iconButton:hover {
-  background-color: #e76f51;
-  border-color: #e76f51;
-  color: #fff;
+  background-color: #d45f45;        /* Updated bright orange on hover */
+  border-color: #d45f45;
+  color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.active {
-  background-color: #e76f51;
-  color: white;
-  border-color: #e76f51;
+.iconButton.active {
+  background-color: #000000;        /* Solid black when active */
+  border-color: #000000;
+  color: #d45f45;                   /* Updated orange text when active */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* =========================================================================
+   5. SUBCATEGORY BUTTONS (BLACK BORDER + ORANGE ON HOVER)
+   ========================================================================= */
+.subcategoryButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.subButton {
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: 2px solid #000000;       /* Black border */
+  border-radius: 8px;
+  font-weight: 600;
+  color: #000000;                   /* Black text */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.subButton:hover {
+  background-color: #d45f45;        /* Updated orange on hover */
+  color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.subButton.active {
+  background-color: #000000;        /* Black when active */
+  color: #d45f45;                   /* Updated orange text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================================
+   6. MENU CONTENT GRID (CARDS)
+   ========================================================================= */
 .menuContent {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 3rem;
+  z-index: 1; /* Keep above background blobs */
 }
 
 .sectionBlock {
-  background-color: #fff;
-  padding: 1.25rem;
+  background-color: #FFFFFF;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid #000000;       /* Thin black border on cards */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.sectionBlock:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .sectionTitle {
   font-size: 1.6rem;
   margin-bottom: 0.75rem;
-  color: #222;
-  border-bottom: 2px solid #eee;
+  color: #000000;         /* Black section titles */
+  border-bottom: 2px solid #EEE;
   padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
 }
 
-.subCategoryBlock {
-  margin-top: 1rem;
-  padding-left: 1rem;
+.sectionTitle::before {
+  content: '🍽️';
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
 }
 
-.subCategoryTitle {
-  font-size: 1.2rem;
-  color: #222;
-  margin-bottom: 0.5rem;
-}
-
-/* Dish list */
 .dishList {
   list-style: disc inside;
   color: #222;
@@ -88,38 +266,161 @@
 }
 
 .dishList li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
-/* New styles for subcategory buttons */
-
-.subcategoryButtons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 1rem 0;
-  justify-content: center;
+.dishList li:hover {
+  color: #d45f45;       /* Updated orange on dish hover */
+  padding-left: 0.5rem;
 }
 
-.subButton {
-  padding: 0.5rem 1rem;
-  background-color: #fff;
-  border: 2px solid #e76f51;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #e76f51;
-  transition: background-color 0.3s, color 0.3s;
-  font-size: 1rem;
+/* =========================================================================
+   7. BACKGROUND BLOBS (DECORATIVE)
+   ========================================================================= */
+.blobOne,
+.blobTwo,
+.blobThree {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.subButton:hover {
-  background-color: #e76f51;
-  color: #fff;
+.blobOne {
+  width: 300px;
+  height: 300px;
+  background: #000000;   /* Black circle */
+  top: -40px;
+  left: -100px;
 }
 
-.subButton.active {
-  background-color: #e76f51;
-  color: #fff;
-  border-color: #e76f51;
+.blobTwo {
+  width: 350px;
+  height: 350px;
+  background: #d45f45;   /* Updated orange circle */
+  bottom: -80px;
+  right: -120px;
+}
+
+.blobThree {
+  width: 200px;
+  height: 200px;
+  background: #222222;   /* Very dark grey */
+  top: 180px;
+  right: -60px;
+}
+
+/* =========================================================================
+   8. ANIMATIONS
+   ========================================================================= */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* =========================================================================
+   9. RESPONSIVE ADJUSTMENTS
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem 1.2rem 2.2rem; /* Slightly increased */
+  }
+  .hero {
+    height: 320px;
+  }
+  .heroText {
+    font-size: 2rem;
+  }
+  .heading {
+    font-size: 2rem;
+  }
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.7rem 1.5rem; /* Slightly increased */
+  }
+  .hero {
+    height: 260px;
+  }
+  .heroText {
+    font-size: 1.5rem;
+  }
+  .mainCategories {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sectionBlock {
+    padding: 0.7rem;
+  }
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+  .blobOne {
+    top: -20px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+  }
+  .blobTwo {
+    bottom: -50px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+  }
+  .blobThree {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.7rem 0.4rem 1rem; /* Slightly increased */
+  }
+  .hero {
+    height: 180px;
+  }
+  .heroText {
+    font-size: 1.2rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+  .sectionBlock {
+    padding: 0.5rem;
+  }
+  .sectionTitle {
+    font-size: 1rem;
+  }
+  .dishList li {
+    font-size: 0.9rem;
+  }
+  .blobOne,
+  .blobTwo {
+    display: none;
+  }
 }
