@@ -1,6 +1,7 @@
 // src/components/Hero/HeroSection.jsx
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -45,7 +46,7 @@ const HeroSection = () => {
             <div className={styles.heroContent}>
               <h1>BANANA BLOSSOM</h1>
               <p>ROOFTOP FINE DINE & RESTAURANT</p>
-              <button className={styles.viewMenu}>View Menu</button>
+          <Link to ="/menu"> <button className={styles.viewMenu}>View Menu</button></Link> 
             </div>
           </SwiperSlide>
         ))}
