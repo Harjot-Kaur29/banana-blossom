@@ -1,65 +1,70 @@
-// src/components/Navbar/Navbar.jsx
 import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
-
-
-
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 80);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+ 
+
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo}>BB</div>
       <ul className={styles.navLinks}>
         <li>
-          <a
-            href="#"
-           className={`${scrolled ? styles.linkDark : styles.linkLight} ${
-      activeLink === "home" ? styles.activeLink : ""
-    }`}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${scrolled ? styles.linkDark : styles.linkLight} ${
+                isActive ? styles.activeLink : ""
+              }`
+            }
           >
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            href="#"
-            className={scrolled ? styles.linkDark : styles.linkLight}
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `${scrolled ? styles.linkDark : styles.linkLight} ${
+                isActive ? styles.activeLink : ""
+              }`
+            }
           >
             About
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            href="#"
-            className={scrolled ? styles.linkDark : styles.linkLight}
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `${scrolled ? styles.linkDark : styles.linkLight} ${
+                isActive ? styles.activeLink : ""
+              }`
+            }
           >
             Contact
-          </a>
+          </NavLink>
         </li>
       </ul>
       <button
         className={`${styles.reserveBtn} ${
           scrolled ? styles.btnDark : styles.btnLight
         }`}
+       
       >
-        View Menu
+        Explore
       </button>
     </nav>
   );
