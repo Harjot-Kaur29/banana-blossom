@@ -48,26 +48,26 @@ const GoogleReviews = () => {
 
     },
   ];
-  //   useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://static.elfsight.com/platform/platform.js";
-  //   script.async = true;
+     useEffect(() => {
+      const script = document.createElement("script");
+      script.src = "https: static.elfsight.com/platform/platform.js";
+      script.async = true;
 
-  //   script.onload = () => {
-  //     setTimeout(() => {
-  //       const el = document.querySelector(
-  //         ".elfsight-app-e40867f7-9e0f-4859-979e-97fa908bc7f6"
-  //       );
-  //       if (el && el.childNodes.length > 0) {
-  //         setWidgetLoaded(true);
-  //       } else {
-  //         setWidgetLoaded(false);
-  //       }
-  //     }, 3000);
-  //   };
+      script.onload = () => {
+        setTimeout(() => {
+          const el = document.querySelector(
+            ".elfsight-app-e40867f7-9e0f-4859-979e-97fa908bc7f6"
+          );
+          if (el && el.childNodes.length > 0) {
+            setWidgetLoaded(true);
+          } else {
+            setWidgetLoaded(false);
+          }
+        }, 3000);
+      };
 
-  //   document.body.appendChild(script);
-  // }, []);
+      document.body.appendChild(script);
+    }, []);
 
   return (
     <div className={styles.googleReviewsSection}>
