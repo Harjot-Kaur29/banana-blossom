@@ -12,9 +12,11 @@ import "swiper/css/navigation";
 import styles from "./Hero.module.css";
 
 const images = [
-  "images/image1.jpg",
-  "images/image2.jpg",
   "images/image3.jpg",
+  "images/image3.jpg",
+  "images/image2.jpg",
+  "images/image1.jpg",
+  
 ];
 
 const HeroSection = () => {

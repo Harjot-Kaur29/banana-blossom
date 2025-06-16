@@ -12,34 +12,193 @@ import {
 
 const vegMenu = {
   Breakfast: {
-    'North Indian': ['Aloo Paratha', 'Chole Bhature'],
-    'South Indian': ['Idli Sambar', 'Masala Dosa'],
-    Chinese: ['Veg Spring Roll'],
-    Italian: ['Veg Croissant'],
+    'North Indian': ['Veg Grilled Sandwich', 'Paneer Tikka Sandwich', 'Spinach Corn Sandwich', 'Mexican Cheese Club Sandwich'],
+    
   },
   'Main Course': {
-    'North Indian': ['Paneer Butter Masala'],
-    'South Indian': ['Avial'],
-    Chinese: ['Veg Manchurian'],
-    Italian: ['Pasta Primavera'],
+    'North Indian': [
+      'Dal Makhani',
+      'Dal Tadka',
+      'Aloo Jeera',
+      'Paneer Butter Masala',
+      'Kadhai Paneer',
+      'Paneer Pasanda',
+      'Paneer Lababdar',
+      'Shahi Paneer',
+      'Palak Paneer',
+      'Paneer Dhaniya Adraki',
+      'Soya Chaap Masala',
+      'Banarasi Dum Aloo',
+      'Malai Kofta',
+      'Mix Veg.',
+      'Makhani Chaap',
+      'Tawa Chaap',
+      'Kadhai Chaap',
+      'Tawa Paneer',
+      'Methi Corn',
+      'Mattar Mashroom',
+      'Mushroom Masala',
+      'Kaju Paneer',
+      'Kaju Paneer Masala',
+      'Kaju Makhana Masala',
+    ],
+    'South Indian': [
+      'Plain Dosa',
+      'Plain Rava Dosa',
+      'Masala Dosa',
+      'Rava masala Dosa',
+      'Onion Masala dosa',
+      'Paneer dosa',
+      'Sambhar Idli',
+      'Sambhar Vada',
+      'Onion Uttapam',
+      'Mix Uttapam',
+      'Egg Bhujia Dosa',
+    ],
+    Chinese: [
+      'Chilly Paneer',
+      'Chilli Mushroom',
+      'Veg Manchurian Gravy',
+      'Veg Hakka Noodle',
+      'Chilly Garlic Noodles',
+      'Singapuri Noodles',
+      'Spicy Shezwan Noodles',
+      'Pan Fries Noodles',
+    ],
+    Italian: [
+      'Pasta Primavera',
+      'Pink Souce Pasta',
+      'White Souce Pasta',
+      'Paneer Nugets',
+      'Cheese Nugets',
+      'Corn Cheese Nugets',
+    ],
   },
   Starters: {
-    'North Indian': ['Paneer Tikka'],
-    'South Indian': ['Medu Vada'],
-    Chinese: ['Spring Rolls'],
-    Italian: ['Garlic Bread'],
+    'North Indian': [
+      'Paneer Tikka',
+      'Hara Bhara Kebab',
+      'Dahi K Sholay',
+      'Soya Malai Tikka',
+      'Soya Tikka',
+      'Aloo Dilnaaz',
+      'Dahi Kebab',
+      'Tandoori Mushroom Tikka',
+      'Makhani Malai Chaap',
+      'Crispy Mushroom',
+      'French Fries'
+    ],
+    Chinese: [
+      'Spring Rolls',
+      'Chilly Honey Potato',
+      'Veg Manchurian Dry',
+      'Classic Chilli Paneer',
+      'Spring Roll',
+      'Cigar Roll',
+      'Chilly Potato',
+      'Soya Chilly Chaap',
+      'Chilly Babycorn',
+      'Crispy Corn'
+    ],
   },
-  Soups: ['Tomato Soup', 'Sweet Corn Soup']
+  Staples: {
+    'North Indian': [
+      'Roti (Tandoori/ Butter)',
+      'Roomali Roti',
+      'Lachha Parantha (Pudina/Harimirch)',
+      'Naan (Plain /Butter / Garlic)',
+      'Missi Roti / Pudina / Laccha Parantha',
+      'Stuffed Naan / Parantha'
+    ]
+  },
+  Soups: [
+    'Hot & Sour Soup',
+    'Sweet Corn Soup',
+    'Manchow Soup',
+    'Tomato Soup',
+    'Mushroom Soup',
+    'Banana Blossom Soup (Chief Spl.)'
+  ]
 };
 
 const nonVegMenu = {
-  'Main Course': ['Chicken Curry', 'Fish Fry'],
-  Starters: ['Chicken Tikka', 'Mutton Seekh Kebab'],
-  Soups: ['Chicken Soup', 'Hot & Sour Chicken Soup']
+  'Main Course': [
+    'Butter Chicken',
+    'Kadhai Murgh',
+    'Murgh Curry',
+    'Murgh Kali Mirch',
+    'Murgh Rara',
+    'Murgh Tikka Masala',
+    'Murgh Saag Wala',
+    'Gosht Saag Wala',
+    'Gosht Rogan Josh',
+    'Gosht Rara',
+    'Laal Maas',
+    'Chicken Sheekh Tawa Masala',
+    'Tawa Chicken',
+    'Chicken Korma',
+    'Chicken Lababdar',
+    'Chicken Do Pyaza',
+    'Mutton Sheekh Masala',
+    'Mutton Curry',
+    'Mutton Handi',
+    'Mutton Korma',
+    'Mutton Boti Kebab',
+    'Mutton Champaran'
+  ],
+  Starters: [
+    'Murgh Afgani',
+    'Murgh Tikka',
+    'Lehsuni Chicken Tikka',
+    'Haryali Chicken Tikka',
+    'Angara Chicken Tikka',
+    'Tandoori Chicken',
+    'Fish Tikka',
+    'Fish Curry',
+    'Tangri Kebab',
+    'Murg Malai Tikka',
+    'Murgh Seekh Kebab',
+    'Ghosht Seekh Kebab'
+  ],
+  Soups: [
+    'Chicken Soup',
+    'Hot & Sour Chicken Soup',
+    'Checken Sweet Corn Soup',
+    'Chicken Manchow Soup',
+    'Mutton Payaa Soup (Advance Order)',
+    'Banana Blossom Soup (Chief Spl.'
+  ],
+     Chinese: [
+      'Veg Hakka Noodles',
+      'Veg Fried Rice',
+      'Chicken Spring Roll',
+      'Lemon Chicken',
+      'Hydra Chicken 65',
+      'Chilli Chicken (Dry)',
+      'Chilli Fish',
+      'Chicken Lollypop',
+      'Chicken Manchurian',
+    ],
 };
 
-const dessertMenu = ['Gulab Jamun', 'Rasgulla', 'Chocolate Brownie'];
-const beveragesMenu = ['Mango Lassi', 'Coca Cola', 'Fresh Lime Water'];
+const dessertMenu = ['Gulab Jamun', 'Phirni(Gulab/Kesar)', 'Choice of Ice Cream'];
+const beveragesMenu = [
+  'Chai (Ginger / Cardamom / Masala)',
+  'Lemon N Honey Tea',
+  'Hot Coffee / Cold Coffee',
+  'Juice (Pineapple/Guava/Anaar)',
+  'Lassi (Sweet/Namkeen)',
+  'Classic Mojito',
+  'Royal Mojito',
+  'Raspberry / Mintberry/Blueberry Mojito',
+  'Virgin Mojito',
+  'Green Apple /Water Melon Mojito',
+  'Aam Pana (Seasonal)',
+  'Fresh Lime Soda',
+  'Oreo Shake',
+  'Banana Shake',
+  'Mango Shake (Seasonal)'
+];
 
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState('Veg');

@@ -7,6 +7,7 @@
   justify-content: space-between;
   padding: 4rem 3rem;         /* adjust top/bottom padding as desired */
   gap: 2rem;                  /* space between left & right */
+  /* max-width: 1200px;       limit width on large screens */
 }
 
 /* LEFT SIDE: text area (50% width by default on large screens) */
@@ -77,7 +78,73 @@
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+.imageGridContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
 
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* Responsive: On screens 768px and below, show one image per row and remove gap */
+@media screen and (max-width: 768px) {
+  .imageGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .gridImage {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    margin: 0;
+  }
+  .imageGridContainer {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+.gridImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.showMoreButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #e76f51; /* Adjust as per theme */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.showMoreButton:hover {
+  background-color: #bc8a5f; /* Slightly darker for hover */
+}
+/* RESPONSIVE: On larger viewports, keep side-by-side */
+@media screen and (min-width: 769px) {
+  .infoSection {
+    flex-direction: row;      /* side-by-side on larger screens */
+  }
+  .textContainer,
+  .imageContainer {
+    max-width: 50%;           /* each takes half width */
+  }
+}
 /* RESPONSIVE: On narrower viewports, stack vertically */
 @media screen and (max-width: 768px) {
   .infoSection {
