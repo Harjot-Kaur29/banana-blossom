@@ -1,0 +1,98 @@
+/* GoogleReviews.module.css */
+
+.googleReviewsSection {
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+.fallbackReviews {
+  border-radius: 16px;
+  padding: 1.5rem 0.5rem;
+  background: #faf9f6;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fallbackReviews h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.reviewsScroller {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  justify-content: flex-start;
+  scroll-snap-type: x mandatory;
+}
+.reviewsScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.reviewCard {
+  background: #fff;
+  min-width: 260px;
+  max-width: 320px;
+  height: 290px;
+  margin: 0.5rem 0;
+  border-left: 4px solid #d45f45;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.2rem 1rem 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  scroll-snap-align: start;
+  transition: box-shadow 0.2s;
+}
+
+.reviewCard:hover {
+  box-shadow: 0 6px 24px rgba(212,95,69,0.10);
+}
+
+.reviewName {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.reviewRating {
+  font-size: 1.1rem;
+  color: #d45f45;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.reviewText {
+  font-size: 0.98rem;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 600px) {
+  .reviewCard {
+    min-width: 210px;
+    max-width: 90vw;
+    height: 280px;
+    padding: 0.9rem 0.7rem 0.7rem 1rem;
+  }
+  .fallbackReviews {
+    padding: 1rem 0.2rem;
+  }
+}

@@ -1,12 +1,17 @@
 /* =========================================================================
    1. GLOBAL & CONTAINER STYLES
    ========================================================================= */
+body {
+  overflow-x: hidden;
+}
+
 .container {
   position: relative;
   max-width: 2400px;
   margin: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* background-color: #F5F5F5; */
+  
 }
 
 /* Reset default list margins */
@@ -22,15 +27,16 @@ ul, li {
 .hero {
   position: relative;
   width: 100%;
+  min-width: 0;
   height: 380px;
-  background-image: url('../../../public/images/image2.jpg'); /* ← Replace with your own hero image path */
+  background-image: url('/images/image1.jpg');
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  margin-bottom: 2rem;
-  border-radius:2px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
- 
+  border-radius: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+  z-index: 100;
 }
 
 .heroOverlay {
@@ -224,7 +230,17 @@ ul, li {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
-  z-index: 1; /* Keep above background blobs */
+  z-index: 1;
+  justify-content: center; /* Add this line to center the cards */
+}
+
+/* Optionally, limit the max width for better centering effect */
+@media (min-width: 1024px) {
+  .menuContent {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .sectionBlock {
