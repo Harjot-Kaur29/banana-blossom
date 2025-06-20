@@ -34,7 +34,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                 >
                    Banana Blossom Rooftop Fine Dine & Restaurant <br />
-                  Noida, Uttar Pradesh, India
+                  4th Floor, Aarza Square - 1, near 7th Avenue, Gaur City 1, Extension, Gaur City 2, Noida, Ghaziabad, Uttar Pradesh 201009
                 </a>
               </span>
             </p>
@@ -62,7 +62,7 @@ const Contact = () => {
               <EmailIcon className={styles.icon} />
               <span>
                 <strong>Email:</strong>{" "}
-                <a href="mailto:sfapl.noida@gmail.com">sfapl.noida@gmail.com</a>
+                <a href="mailto:sfapl.noida@gmail.com">reservations@bananablossom.in</a>
               </span>
             </p>
             
@@ -70,7 +70,7 @@ const Contact = () => {
               <AccessTimeIcon className={styles.icon} />
               <span>
                 <strong>Opening Hours:</strong><br />
-                Mon – Sun: 12:00 PM – 11:00 PM
+                Mon – Sun: 11:00 AM – 12:00 PM
               </span>
             </p>
             

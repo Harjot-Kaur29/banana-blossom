@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerLogo}>
-          <h2>BB</h2>
+          <img src="/favicon.png" alt="Banana Blossom" />
           <p>Banana Blossom</p>
           <p>Rooftop Fine Dine & Restaurant</p>
         </div>
@@ -21,7 +21,7 @@ const Footer = () => {
 
         <div className={styles.footerContact}>
           <p className={styles.noDecoration}>
-            <a href="mailto:contact@bananablossom.com">Email: sfapl.noida@gmail.com</a>
+            <a href="mailto:contact@bananablossom.com">Email: reservations@bananablossom.in</a>
           </p>
           <p className={styles.noDecoration}>
             <a href="tel:+91 9643332049">Phone: +91 9643332049</a>
@@ -35,7 +35,9 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Banana Blossom Rooftop Fine Dine & Restaurant - Noida
+              Banana Blossom Rooftop Fine Dine & Restaurant - <br/>
+              4th Floor, Aarza Square - 1, near 7th Avenue, Gaur City 1, <br/>
+               Extension, Gaur City 2, Noida, Ghaziabad, Uttar Pradesh 201009
             </a>
           </p>
         </div>
