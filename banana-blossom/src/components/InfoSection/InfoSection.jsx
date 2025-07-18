@@ -20,7 +20,7 @@ const InfoSection = () => {
     <section className={styles.infoSection}>
       <div className={styles.textContainer} data-aos="fade-right">
         <div className={styles.subtitle}>WELCOME TO BANANA BLOSSOM</div>
-        <h2 className={styles.title}>COME &amp; MEET US AT BANANA BLOSSOM</h2>
+        <h1 className={styles.title}>COME &amp; MEET US AT BANANA BLOSSOM</h1>
         <p className={styles.paragraph}>
           {showMore ? (
             <span>

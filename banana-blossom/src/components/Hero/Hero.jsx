@@ -46,7 +46,7 @@ const HeroSection = () => {
             />
             <div className={styles.overlay}></div>
             <div className={styles.heroContent}>
-              <h1>BANANA BLOSSOM</h1>
+              <h2>BANANA BLOSSOM</h2>
               <p>ROOFTOP FINE DINE & RESTAURANT</p>
           <Link to ="/menu"> <button className={styles.viewMenu}>View Menu</button></Link> 
             </div>
